@@ -223,7 +223,7 @@ app.post('/login', (req, res)=>{
     
 
 app.get('/test-db', (req, res) => {
-    db.query('SELECT 1 + 1 AS result', (err, results) => {
+    db.query('SELECT * from users', (err, results) => {
       if (err) {
         console.error('Erro ao conectar ao banco:', err);
         return res.status(500).json({
