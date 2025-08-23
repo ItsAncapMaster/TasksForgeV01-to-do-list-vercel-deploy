@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from '../../../backEnd/node_modules/vue-router/dist/vue-router'
 
 const routes = [
     {
