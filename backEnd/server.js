@@ -220,4 +220,8 @@ app.post('/login', (req, res)=>{
 })
     
 
+app.get('/ping', (req, res) => {
+    res.json({ message: 'Backend funcionando!' });
+  });
+
 app.listen(PORT, ()=> console.log(`server running on ${PORT} port!!!`));
