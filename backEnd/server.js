@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const PORT = process.env.PORT || 8090;
+
 const mysql = require('mysql');
 const jwt = require('jsonwebtoken');
 
@@ -221,17 +222,15 @@ app.post('/login', (req, res)=>{
     
 
 app.get('/test-db', (req, res) => {
-    // Tenta executar uma query simples
-    connection.query('SELECT 1 + 1 AS result', (err, results) => {
+    db.query('SELECT 1 + 1 AS result', (err, results) => {
       if (err) {
         console.error('Erro ao conectar ao banco:', err);
         return res.status(500).json({
           message: 'Erro ao conectar ao banco',
-          error: err.code // mostra o código do erro
+          error: err.code
         });
       }
   
-      // Se funcionar, envia o resultado
       res.json({
         message: 'Conexão com o banco funcionando!',
         resultado: results[0].result
