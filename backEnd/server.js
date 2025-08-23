@@ -31,7 +31,7 @@ db.connect((err, connect)=>{
 
 
 
-function verifytoken(req, res, next) {
+ function verifytoken(req, res, next) {
     const auth = req.headers.authorization; // corrigido
 
     if (!auth) {
