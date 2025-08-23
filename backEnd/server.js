@@ -5,7 +5,7 @@ const app = express();
 const cors = require('cors');
 const PORT = process.env.PORT || 8090;
 
-const mysql = require('mysql');
+const mysql = require('mysql2');
 const jwt = require('jsonwebtoken');
 
 
