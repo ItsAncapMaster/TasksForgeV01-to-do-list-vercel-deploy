@@ -126,7 +126,7 @@ body{
     color: black;
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-    font-size: 0,1cm;
+    font-size: 0.1cm;
     font-weight: 600;
 }
 
