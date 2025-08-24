@@ -86,14 +86,16 @@ export default{
                         const resultado = await response.json();
                         console.log(resultado);
 
+                        if(!resultado.ok){
+                           return this.estado_dado = 'usuario invalido, email ou senha incorretos!'
+                        }
+                        
+
                         this.$router.push("/");
 
                         localStorage.setItem('token', resultado.token)
 
-                        if(!resultado.ok){
-                            this.estado_dado.value = 'usuario invalido, email ou senha incorretos!'
-                        }
-                        
+                    
                         
                     } catch (erro) {
                         console.error('Erro na requisição:', erro);
