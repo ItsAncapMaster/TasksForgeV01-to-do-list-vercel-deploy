@@ -21,6 +21,13 @@ export default{
   },
     methods: {
         fetchSend(){
+
+            const token = localStorage.getItem('token')
+
+            if(token){
+                this.$router.push("/");
+            }
+
             const dados = {
                 name: this.name,
                 email: this.email,
