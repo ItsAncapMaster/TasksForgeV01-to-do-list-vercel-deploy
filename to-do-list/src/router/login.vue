@@ -126,7 +126,6 @@ body{
     color: black;
     font-size: 16px;
     font-family: "Poppins", sans-serif;
-    font-size: 0.1cm;
     font-weight: 600;
 }
 
@@ -192,7 +191,7 @@ body{
 .show {
   position: absolute;
   top: 50%;
-  right: 10px;
+  right: 16px;
   transform: translateY(-50%);
   width: 21px;
   height: 21px;
