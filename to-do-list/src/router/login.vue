@@ -86,11 +86,12 @@ export default{
                         const resultado = await response.json();
                         console.log(resultado);
 
-                        if(!response.ok){
-                            this.estado = false;
-                           return this.estado_dado = 'usuario invalido, email ou senha incorretos!'
-                        }
-                        
+                        if (!response.ok) {
+                                        this.estado_dado = 'Usuário inválido, email ou senha incorretos!';
+                                        this.estado = true;
+                                        return;
+                            }
+
 
                         this.$router.push("/");
 
