@@ -37,7 +37,7 @@
 
 <script>
 
-import Showpassword from '@/components/showpassword.vue'
+import showpassword from '@/components/showpassword.vue'
 import email_logo from '@/assets/icones/envelope (2).png'
 
 
@@ -95,7 +95,7 @@ export default{
     },
 
     components: {
-    Showpassword
+    showpassword
   }
 
     
