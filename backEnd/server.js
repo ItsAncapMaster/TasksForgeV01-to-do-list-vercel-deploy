@@ -12,23 +12,26 @@ const jwt = require('jsonwebtoken');
 app.use(express.json());
 app.use(cors());
 
-const db = mysql.createConnection({
+const db = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME,
-    port: Number(process.env.DB_PORT) // <== MUITO IMPORTANTE!
+    port: Number(process.env.DB_PORT),
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
 });
 
-
-db.connect((err, connect)=>{
-    if(err){
-       return console.log(err);
+// testa a conexão
+db.getConnection((err, connection) => {
+    if (err) {
+        console.error("❌ Erro ao conectar no MySQL:", err);
+        return;
     }
-
-    console.log(`server connected on my sql`)
-
-})
+    console.log("✅ Conectado ao MySQL!");
+    connection.release();
+});
 
 
 
