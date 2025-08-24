@@ -210,6 +210,10 @@ app.post('/login', (req, res)=>{
             return res.status(401).json({err: err})
         };
 
+        if (results.length === 0) {
+            return res.status(401).json({ error: "Email ou senha inválidos" });
+        }
+
         const comments = results[0];
         
       const token = gerarToken(comments);

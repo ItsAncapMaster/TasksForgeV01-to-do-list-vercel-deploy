@@ -90,7 +90,9 @@ export default{
 
                         localStorage.setItem('token', resultado.token)
 
-                        
+                        if(!resultado.ok){
+                            this.estado_dado.value = 'usuario invalido, email ou senha incorretos!'
+                        }
                         
                         
                     } catch (erro) {
