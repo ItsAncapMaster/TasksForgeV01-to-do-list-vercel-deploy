@@ -152,6 +152,7 @@ body{
 .input-wrapper {
   position: relative;
   width: fit-content;
+  width: 335px; /* igual ao input *//* espaço para o ícone de mostrar senha */
 }
 
 #estado{
