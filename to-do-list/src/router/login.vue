@@ -86,18 +86,18 @@ export default{
                         const resultado = await response.json();
                         console.log(resultado);
 
+                        this.$router.push("/");
+
                         localStorage.setItem('token', resultado.token)
 
-                        if(resultado.ok){
-                        this.$router.push("/");
-                        }
+                        
+                        
+                        
                     } catch (erro) {
                         console.error('Erro na requisição:', erro);
                     }
 
-                    if(token){
-                        this.$router.push("/");
-                    }
+              
                     })();
 
 
