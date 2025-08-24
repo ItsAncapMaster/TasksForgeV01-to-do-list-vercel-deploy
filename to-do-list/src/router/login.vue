@@ -192,7 +192,7 @@ body{
 .show {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 100px;
   transform: translateY(-50%);
   width: 21px;
   height: 21px;
