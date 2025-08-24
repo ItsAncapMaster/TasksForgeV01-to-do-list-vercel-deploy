@@ -3,7 +3,7 @@
 
         <div class="container">
 
-        <h1 id="title">WELLCOME <span style="color: black; font-size: 62px ;">BACK</span></h1>
+        <h1 id="title">WELCOME <span style="color: black; font-size: 62px ;">BACK</span></h1>
 
         <h2 id="subtitle">Sing in</h2>
 
