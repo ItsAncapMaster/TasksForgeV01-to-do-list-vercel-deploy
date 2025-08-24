@@ -182,17 +182,17 @@ body{
 #email-logo {
   position: absolute;
   top: 50%;
-  right: 11px;
+  right: -7px;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
   pointer-events: none; /* não atrapalha clique */
 }
 
-.show {
+.show{
   position: absolute;
   top: 50%;
-  right: 10%;
+  right: -7px; /* distância da borda direita */
   transform: translateY(-50%);
   width: 21px;
   height: 21px;
