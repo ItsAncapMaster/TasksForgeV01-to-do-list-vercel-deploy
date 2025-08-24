@@ -86,7 +86,7 @@ export default{
                         const resultado = await response.json();
                         console.log(resultado);
 
-                        if(!resultado.ok){
+                        if(!response.ok){
                             this.estado = false;
                            return this.estado_dado = 'usuario invalido, email ou senha incorretos!'
                         }
