@@ -55,6 +55,11 @@ export default{
   },
     methods: {
         fetchSend(){
+
+            if(token){
+                        this.$router.push("/");
+                    }
+
             const dados = {
                 email: this.email,
                 senha: this.senha
