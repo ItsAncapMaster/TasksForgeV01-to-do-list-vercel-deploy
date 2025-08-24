@@ -10,12 +10,14 @@ const routes = [
     {
         path: '/login',
         component: () => import('./login.vue'),
-        name: 'login'
+        name: 'login',
+        meta: { notrequiresAuth: true}
     },
     {
         path: '/register',
         component: () => import('./register.vue'),
-        name: 'register'
+        name: 'register',
+        meta: { notrequiresAuth: true}
     },
     {
         path: '/:pathMatch(.*)*',
@@ -35,6 +37,15 @@ router.beforeEach((to, from, next) => {
     const token = localStorage.getItem('token');
     if (to.meta.requiresAuth && !token) {
         next('/login');
+    } else {
+        next();
+    }
+});
+
+router.beforeEach((to, from, next) => {
+    const token = localStorage.getItem('token');
+    if (to.meta.notrequiresAuth && token) {
+        next('/');
     } else {
         next();
     }
