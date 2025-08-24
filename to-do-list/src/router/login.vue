@@ -87,7 +87,7 @@ export default{
                         console.log(resultado);
 
                         if (!response.ok) {
-                                        this.estado_dado = 'Usuário inválido, email ou senha incorretos!';
+                                        this.estado_dado = resultado.message || 'Usuário inválido, email ou senha incorretos!';
                                         this.estado = true;
                                         return;
                             }
