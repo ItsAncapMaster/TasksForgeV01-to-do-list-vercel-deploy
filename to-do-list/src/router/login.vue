@@ -77,6 +77,12 @@ export default{
 
 <style>
 
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .inputs{
     width: 230px;
     height: 38px;

@@ -67,6 +67,11 @@ function modalClose(){
 
 }
 
+function show(parametro){
+  parametro.tasks.forEach(element => {
+        lista.value.push(element);
+      });
+}
 
 function showMensagens() {
   lista.value = []; 
@@ -79,9 +84,7 @@ function showMensagens() {
   })
     .then(res => res.json())
     .then(data => {
-      data.tasks.forEach(element => {
-        lista.value.push(element);
-      });
+      show(data);
     })
     .catch(err => console.log(err)); // 
 }
@@ -111,7 +114,7 @@ function CreateTask() {
 })
     .then(data => {
       tarefa.value = ""; // limpa o campo
-      showMensagens();
+        showMensagens()
     })
     .catch(err => {
         console.error("Erro ao criar tarefa:", err);
