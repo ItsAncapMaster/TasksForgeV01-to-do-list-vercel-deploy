@@ -87,6 +87,7 @@ export default{
                         console.log(resultado);
 
                         if(!resultado.ok){
+                            this.estado = false;
                            return this.estado_dado = 'usuario invalido, email ou senha incorretos!'
                         }
                         
