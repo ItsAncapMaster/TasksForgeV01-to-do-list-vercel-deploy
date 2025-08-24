@@ -37,9 +37,7 @@
 </template>
 
 <script setup>
-
-import { reactive, ref } from 'vue';
-
+import { ref, onMounted } from 'vue'
 
 import closeIcon from '@/assets/icones/close (1).png';
 import quadradoIcon from '@/assets/icones/quadrado.png';
@@ -53,28 +51,11 @@ const lista = ref([]);
 const tarefa = ref("");
 const API_URL = import.meta.env.VITE_API_URL;
 
-function modalOpen(){
-
-    btn_open.value.classList.toggle('escondido')
-    modal.value.classList.toggle('modal')
-
-}
-
-function modalClose(){
-
-  btn_open.value.classList.toggle('btn-open')
-    modal.value.classList.toggle('escondido')
-
-}
-
-function show(parametro){
-  parametro.tasks.forEach(element => {
-        lista.value.push(element);
-      });
-}
+onMounted(() => {
+  showMensagens();
+});
 
 function showMensagens() {
-  lista.value = []; 
   const token = localStorage.getItem('token');
   fetch(`${API_URL}/getTasks`, {
     method: 'GET',
@@ -84,86 +65,67 @@ function showMensagens() {
   })
     .then(res => res.json())
     .then(data => {
-      show(data);
+      lista.value = data.tasks || [];
     })
-    .catch(err => console.log(err)); // 
+    .catch(err => console.log(err));
 }
 
-showMensagens();
-
-
 function CreateTask() {
-     // isso deve estar fora da função se for reativo no Vue
- const token = localStorage.getItem('token')
+  const token = localStorage.getItem('token');
+  if (!token) {
+    $router.push('/login');
+    return;
+  }
 
- if(!token){
-  $router.push('/login');
- }
-
-    fetch(`${API_URL}/PostTasks`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-        },
-        body: JSON.stringify({ tarefa: tarefa.value })
-    })
-    .then(res => {
-  console.log("Status da resposta:", res.status);
-  return res.json();
-})
+  fetch(`${API_URL}/PostTasks`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    },
+    body: JSON.stringify({ tarefa: tarefa.value })
+  })
+    .then(res => res.json())
     .then(data => {
-      tarefa.value = ""; // limpa o campo
-        showMensagens()
+      tarefa.value = "";
+      // se o backend não retorna a task criada,
+      // atualiza manualmente chamando showMensagens()
+      if (data.task) {
+        lista.value.push(data.task);
+      } else {
+        showMensagens();
+      }
     })
-    .catch(err => {
-        console.error("Erro ao criar tarefa:", err);
-    });
+    .catch(err => console.error("Erro ao criar tarefa:", err));
 }
 
 function finishedTask(id) {
   fetch(`${API_URL}/finishTasks/${id}`, {
     method: 'PUT',
-    headers: {
-      'Content-Type': 'application/json'
-    },
+    headers: { 'Content-Type': 'application/json' },
   })
-  .then(res => res.json())
-  .then(data => {
-    if (data.ok) { 
-
-      tarefa.value = ""; // limpa o campo
-      showMensagens();
-     
-     
-    }
-  })
-  .catch(err => {
-    console.error("Erro ao atualizar tarefa:", err);
-  });
+    .then(res => res.json())
+    .then(data => {
+      if (data.ok) {
+        const task = lista.value.find(t => t.id === id);
+        if (task) task.status = "concluida";
+      }
+    })
+    .catch(err => console.error("Erro ao atualizar tarefa:", err));
 }
 
-function excluirTask(id){
-
-  fetch(`${API_URL}/deleteTasks/${id}`, {
-    method: 'DELETE'
-  })
-  .then(res => res.json())
-  .then(data => {
-    if(data.ok){
-      tarefa.value = ""; // limpa o campo
-      showMensagens();
-     
-    }
-  })
-  .catch(err =>{
-    console.log('deu erro' + err);
-  })
-
+function excluirTask(id) {
+  fetch(`${API_URL}/deleteTasks/${id}`, { method: 'DELETE' })
+    .then(res => res.json())
+    .then(data => {
+      if (data.ok) {
+        lista.value = lista.value.filter(t => t.id !== id);
+      }
+    })
+    .catch(err => console.log('deu erro ' + err));
 }
-
-
 </script>
+
 
 <style>
 
