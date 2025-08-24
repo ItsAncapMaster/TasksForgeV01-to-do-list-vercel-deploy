@@ -87,6 +87,10 @@ export default{
                     } catch (erro) {
                         console.error('Erro na requisição:', erro);
                     }
+
+                    if(token){
+                        this.$router.push("/");
+                    }
                     })();
 
 
