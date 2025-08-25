@@ -135,8 +135,8 @@ body{
     min-width: 400px;
     max-height: 40px;
     
-}
-
+ }
+ 
 .container{
     display: flex;
     align-items: center;
