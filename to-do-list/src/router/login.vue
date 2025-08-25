@@ -134,7 +134,7 @@ body{
     flex-direction: row;
     min-width: 400px;
     max-height: 40px;
-    border: red 1px solid; 
+    
 }
 
 .container{
