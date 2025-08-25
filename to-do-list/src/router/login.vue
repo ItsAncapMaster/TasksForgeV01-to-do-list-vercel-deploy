@@ -129,12 +129,12 @@ body{
 }
 
 #estado-container{
-    display: flexbox;
+    display: flex;
     justify-content: center;
     flex-direction: row;
-    position: relative;
-    left: 40px;
-    width: 390px;
+    min-width: 400px;
+    max-height: 40px;
+    border: red 1px solid; 
 }
 
 .container{
@@ -171,8 +171,10 @@ body{
     display: flex;
     gap: 3px;
     flex-direction: column;
+    align-items: center;
     position: relative;
     top: 140px;
+    width: auto;
 }
 
 .input-wrapper {
@@ -199,6 +201,7 @@ body{
   outline: none;
   padding-left: 16px;
   font-weight: 600;
+  position: relative; right: 8px;
   font-size: 14px;
   font-family: "Poppins", sans-serif; /* espaço pro ícone da esquerda */
 }
@@ -206,7 +209,7 @@ body{
 #email-logo {
   position: absolute;
   top: 50%;
-  right: -7px;
+  right: -2px;
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
@@ -216,7 +219,7 @@ body{
 .show{
   position: absolute;
   top: 50%;
-  right: -7px; /* distância da borda direita */
+  right: -2px; /* distância da borda direita */
   transform: translateY(-50%);
   width: 21px;
   height: 21px;
