@@ -74,7 +74,7 @@ export default{
                return console.log(this.estado_dado);
             }
 
-            this.estado = false;
+             this.estado = false;
 
             (async () => {
                     try {
