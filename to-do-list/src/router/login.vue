@@ -178,8 +178,7 @@ body{
     font-size: 15px;
     position: relative;
     left: 35px;
-    top: 40px;
-    margin-top: -41px;
+    top: -10px;
 }
 
 .inputs {
