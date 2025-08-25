@@ -25,8 +25,9 @@
     </div>
 
     <button @click="fetchSend" class="bt">Sign in</button>
+    <div id="estado-container">
     <p v-if="estado === true" id="estado">{{ estado_dado }}</p>
-
+    </div>
   </div>
 
 </div>
@@ -127,6 +128,14 @@ body{
     background-color: rgb(21, 21, 21);
 }
 
+#estado-container{
+    display: flexbox;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+    left: 40px;
+    width: 390px;
+}
 
 .container{
     display: flex;
@@ -177,7 +186,6 @@ body{
     font-family: "Poppins", sans-serif;
     font-size: 15px;
     position: relative;
-    left: 35px;
     top: -10px;
 }
 
