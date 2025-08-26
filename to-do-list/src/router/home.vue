@@ -46,6 +46,7 @@
   import quadradoCheckIcon from '@/assets/icones/quadrado (2).png';
   import checkIcon from '@/assets/icones/marca-de-verificacao (1).png';
   import crossIcon from '@/assets/icones/marca-cruzada.png';
+  import { useRouter } from 'vue-router'
   
   const modal = ref(null);
   const btn_open = ref(null);
@@ -75,7 +76,7 @@
   function CreateTask() {
     const token = localStorage.getItem('token');
     if (!token) {
-      $router.push('/login');
+      router.push('/login');
       return;
     }
   
@@ -129,7 +130,7 @@
 
   function leave(){
     localStorage.removeItem('token')
-    $router.push('/login')
+     return router.push('/login');
   }
   </script>
   
