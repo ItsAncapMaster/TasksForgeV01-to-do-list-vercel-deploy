@@ -103,8 +103,12 @@ export default{
                             this.name = '';
                             this.email = '';
                             this.senha = '';
+
+                            if(response.ok){
+                                this.$router.push("/");
+                            }
                                 
-                        this.$router.push("/");
+                        
                         
                     } catch (erro) {
                         console.error('Erro na requisição:', erro);

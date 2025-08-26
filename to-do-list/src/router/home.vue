@@ -129,6 +129,7 @@
 
   function leave(){
     localStorage.removeItem('token')
+    $router.push('/login')
   }
   </script>
   
