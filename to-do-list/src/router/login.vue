@@ -11,7 +11,7 @@
 
     <div class="input-wrapper">
       <input type="email" v-model="email" placeholder="email" class="inputs">
-      <img :src="email_logo" alt="" id="email-logo">
+      <img :src="email_logo" alt="" class="show">
     </div>
 
     <div class="input-wrapper">
@@ -172,8 +172,6 @@ body{
     gap: 3px;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    top: 140px;
     width: auto;
 }
 
@@ -264,6 +262,7 @@ body{
     position: relative;
     top: 120px;
     margin: 0;
+    margin-bottom: 140px;
 }
 
  

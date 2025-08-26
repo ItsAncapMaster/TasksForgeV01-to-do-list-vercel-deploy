@@ -20,6 +20,10 @@
     <input type="password" v-model="senha" placeholder="senha" class="inputs" ref="password">
     <showpassword :input="$refs.password" class="show"/>
     </div>
+    <div class="to-register-div">
+     <p id="to-register">Ja tem uma Conta?,</p>
+     <p> <router-link id="router-link" to="login">Login</router-link></p>
+    </div>
     <button @click="fetchSend" class="bt">sing in</button>
     <p v-if="estado === true" id="estado">{{ estado_dado }}</p>
     </div>
@@ -167,8 +171,6 @@ body{
     gap: 3px;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    top: 140px;
     width: auto;
 }
 
@@ -257,6 +259,7 @@ body{
     position: relative;
     top: 120px;
     margin: 0;
+    margin-bottom: 140px;
 }
 
  

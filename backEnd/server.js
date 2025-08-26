@@ -170,6 +170,10 @@ app.post('/register', (req, res)=>{
             return res.status(401).json({err: err})
         };
 
+        if (results.length === 0) {
+            return res.status(401).json({ error: "Email ou senha inválidos" });
+        }
+
         console.log(results)
             
             const sql2 = 'SELECT * FROM users WHERE email = ? AND password = ?';
