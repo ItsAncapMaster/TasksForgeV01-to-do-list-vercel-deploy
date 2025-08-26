@@ -142,7 +142,7 @@ body{
     align-items: center;
     justify-content: start;
     flex-direction: column;
-    width: 100%;
+    min-width: 100%;
     height: 98vh;
 }
 
