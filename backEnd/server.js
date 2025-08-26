@@ -57,7 +57,7 @@ db.getConnection((err, connection) => {
 
 
 function gerarToken(user) {
-    return jwt.sign({ id: user.id, name: user.name, email: user.email }, process.env.segredo , { expiresIn: '8h' });
+    return jwt.sign({ id: user.id, name: user.name, email: user.email }, process.env.segredo);
 }
 
 

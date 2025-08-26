@@ -32,13 +32,15 @@
         <button @click="excluirTask(task.id)" class="btn-delete">
           <img :src="crossIcon" alt="">
         </button>
+        <img :src="leave_icon" alt="sair" @click="leave()" id="leave-bt">
       </div>
     </div>
   </template>
   
   <script setup>
   import { ref, onMounted } from 'vue'
-  
+
+  import leave_icon from '@/assets/icones/leave (1).png';
   import closeIcon from '@/assets/icones/close (1).png';
   import quadradoIcon from '@/assets/icones/quadrado.png';
   import quadradoCheckIcon from '@/assets/icones/quadrado (2).png';
@@ -124,6 +126,10 @@
       })
       .catch(err => console.log('deu erro ' + err));
   }
+
+  function leave(){
+    localStorage.removeItem('token')
+  }
   </script>
   
   
@@ -135,6 +141,13 @@
     font-family: "Poppins", sans-serif;
   }
   
+  #leave-bt{
+    position: absolute;top: 40px;
+    right: 40px;
+    width: 30px;
+    height: 30px;
+  }
+
   .title{
     color: rgb(255, 255, 255);
     font-family: "Poppins", sans-serif;
