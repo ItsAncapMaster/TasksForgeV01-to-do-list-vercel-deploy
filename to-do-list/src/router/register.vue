@@ -93,18 +93,19 @@ export default{
 
                         localStorage.setItem('token', resultado.token)
                         console.log(resultado);
-                        dados.email = ''
-                        dados.senha = ''
-                    
+                        
                         if (!response.ok) {
-                                        this.estado_dado = resultado.message || 'Usuário inválido, email ou senha incorretos!';
+                                        this.estado_dado = resultado.message || 'Cadastro invalido!';
                                         this.estado = true;
                                         return;
                             }
 
-                        if(resultado.ok){
+                            this.name = '';
+                            this.email = '';
+                            this.senha = '';
+                                
                         this.$router.push("/");
-                        }
+                        
                     } catch (erro) {
                         console.error('Erro na requisição:', erro);
                     }
