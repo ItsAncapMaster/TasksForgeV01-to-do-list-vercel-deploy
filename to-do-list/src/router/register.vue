@@ -93,7 +93,9 @@ export default{
 
                         localStorage.setItem('token', resultado.token)
                         console.log(resultado);
-                        
+                        dados.email = ''
+                        dados.senha = ''
+                    
                         if (!response.ok) {
                                         this.estado_dado = resultado.message || 'Usuário inválido, email ou senha incorretos!';
                                         this.estado = true;

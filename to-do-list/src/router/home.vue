@@ -32,8 +32,8 @@
         <button @click="excluirTask(task.id)" class="btn-delete">
           <img :src="crossIcon" alt="">
         </button>
-        <img :src="leave_icon" alt="sair" @click="leave()" id="leave-bt">
       </div>
+      <img :src="leave_icon" alt="sair" @click="leave()" id="leave-bt">
     </div>
   </template>
   
