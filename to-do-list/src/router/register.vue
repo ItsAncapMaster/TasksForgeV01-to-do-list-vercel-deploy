@@ -22,7 +22,7 @@
     </div>
     <div class="to-register-div">
      <p id="to-register">Ja tem uma Conta?,</p>
-     <p> <router-link id="router-link" to="login">Login</router-link></p>
+     <p> <a id="router-link" href="login">Login</a></p>
     </div>
     <button @click="fetchSend" class="bt">sing in</button>
     

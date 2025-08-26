@@ -21,7 +21,7 @@
 
     <div class="to-register-div">
      <p id="to-register">novo aqui?,</p>
-     <p> <router-link id="router-link" to="register">Cadastrar-se</router-link></p>
+     <p> <a id="router-link" href="register">Cadastrar-se</a></p>
     </div>
 
     <button @click="fetchSend" class="bt">Sign in</button>
