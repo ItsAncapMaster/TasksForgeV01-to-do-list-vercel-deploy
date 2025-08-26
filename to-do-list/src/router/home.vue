@@ -39,6 +39,7 @@
   
   <script setup>
   import { ref, onMounted } from 'vue'
+  const router = useRouter();
 
   import leave_icon from '@/assets/icones/leave (1).png';
   import closeIcon from '@/assets/icones/close (1).png';
